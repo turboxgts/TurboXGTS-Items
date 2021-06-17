@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using ItemAPI;
 
-namespace DevilsHorns
+namespace TurboItems
 {
     public class DevilsHorns : PassiveItem
     {
@@ -38,7 +38,7 @@ namespace DevilsHorns
             ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.EnemyProjectileSpeedMultiplier, 2, StatModifier.ModifyMethod.MULTIPLICATIVE);
             ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.ProjectileSpeed, 0.85f, StatModifier.ModifyMethod.MULTIPLICATIVE);
 
-          item.quality = PickupObject.ItemQuality.C;
+          item.quality = PickupObject.ItemQuality.S;
         }
 
         public override void Pickup(PlayerController player)

@@ -77,5 +77,122 @@ namespace ItemAPI
             if (!Gungeon.Game.Items.ContainsID(consoleID)) return false;
             return player.HasPickupID(Gungeon.Game.Items[consoleID].PickupObjectId);
         }
+
+        public static bool PlayerHasActiveSynergy(this PlayerController player, string synergyNameToCheck)
+        {
+            foreach (int num in player.ActiveExtraSynergies)
+            {
+                AdvancedSynergyEntry advancedSynergyEntry = GameManager.Instance.SynergyManager.synergies[num];
+                bool flag = advancedSynergyEntry.NameKey == synergyNameToCheck;
+                if (flag)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public static bool OwnerHasSynergy(this Gun gun, string synergyName)
+        {
+            return gun.CurrentOwner is PlayerController && (gun.CurrentOwner as PlayerController).PlayerHasActiveSynergy(synergyName);
+        }
+
+        public static void AddItemToSynergy(this PickupObject obj, string nameKey)
+        {
+            AddItemToSynergy(nameKey, obj.PickupObjectId);
+        }
+
+        public static void AddItemToSynergy(string nameKey, int id)
+        {
+            foreach (AdvancedSynergyEntry entry in GameManager.Instance.SynergyManager.synergies)
+            {
+                if (entry.NameKey == nameKey)
+                {
+                    if (PickupObjectDatabase.GetById(id) != null)
+                    {
+                        PickupObject obj = PickupObjectDatabase.GetById(id);
+                        if (obj is Gun)
+                        {
+                            if (entry.OptionalGunIDs != null)
+                            {
+                                entry.OptionalGunIDs.Add(id);
+                            }
+                            else
+                            {
+                                entry.OptionalGunIDs = new List<int> { id };
+                            }
+                        }
+                        else
+                        {
+                            if (entry.OptionalItemIDs != null)
+                            {
+                                entry.OptionalItemIDs.Add(id);
+                            }
+                            else
+                            {
+                                entry.OptionalItemIDs = new List<int> { id };
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        public static void AddItemToSynergy(this PickupObject obj, string nameKey, bool clearMandatory = false)
+        {
+            AddItemToSynergy(nameKey, obj.PickupObjectId, clearMandatory);
+        }
+        public static void AddItemToSynergy(string nameKey, int id, bool clearMandatory = false)
+        {
+            foreach (AdvancedSynergyEntry entry in GameManager.Instance.SynergyManager.synergies)
+            {
+                if (entry.NameKey == nameKey)
+                {
+                    if (PickupObjectDatabase.GetById(id) != null)
+                    {
+                        PickupObject obj = PickupObjectDatabase.GetById(id);
+                        if (obj is Gun)
+                        {
+                            if (entry.OptionalGunIDs != null)
+                            {
+                                if (entry.MandatoryGunIDs != null && clearMandatory)
+                                {
+                                    foreach (var mId in entry.MandatoryGunIDs)
+                                    {
+                                        entry.OptionalItemIDs.Add(mId);
+                                    }
+                                    entry.MandatoryItemIDs.Clear();
+                                }
+                                entry.OptionalGunIDs.Add(id);
+                            }
+                            else
+                            {
+                                entry.OptionalGunIDs = new List<int> { id };
+                            }
+                        }
+                        else
+                        {
+                            if (entry.OptionalItemIDs != null)
+                            {
+                                if (entry.MandatoryItemIDs != null && clearMandatory)
+                                {
+                                    foreach (var mId in entry.MandatoryItemIDs)
+                                    {
+                                        entry.OptionalItemIDs.Add(mId);
+                                    }
+                                    entry.MandatoryItemIDs.Clear();
+                                }
+
+                                entry.OptionalItemIDs.Add(id);
+                            }
+                            else
+                            {
+                                entry.OptionalItemIDs = new List<int> { id };
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }

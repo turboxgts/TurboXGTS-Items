@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-namespace DevilsHorns
+namespace TurboItems
 {
     public class Module : ETGModule
     {
@@ -17,6 +17,8 @@ namespace DevilsHorns
         {
             ItemBuilder.Init();
             DevilsHorns.Register();
+            BulletSpeedShift.Register();
+            SamusHelmet.Register();
             Log($"{MOD_NAME} v{VERSION} started successfully.", TEXT_COLOR);
         }
 
