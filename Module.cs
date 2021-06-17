@@ -9,7 +9,7 @@ namespace TurboItems
 {
     public class Module : ETGModule
     {
-        public static readonly string MOD_NAME = "Devil'sHornsItem";
+        public static readonly string MOD_NAME = "TurboXGTSItems";
         public static readonly string VERSION = "1.0.0";
         public static readonly string TEXT_COLOR = "#00FFFF";
 
@@ -19,6 +19,7 @@ namespace TurboItems
             DevilsHorns.Register();
             BulletSpeedShift.Register();
             SamusHelmet.Register();
+            BeholsterTentacle.Register();
             Log($"{MOD_NAME} v{VERSION} started successfully.", TEXT_COLOR);
         }
 

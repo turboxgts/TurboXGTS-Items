@@ -10,7 +10,7 @@ namespace TurboItems
     {
         public static void Register()
         {
-            string itemName = "SamusHelmet";
+            string itemName = "Samus' Helmet";
             string resourceName = "ExampleMod/Resources/samus_helmet";
             GameObject obj = new GameObject(itemName);
             var item = obj.AddComponent<SamusHelmet>();
@@ -19,13 +19,13 @@ namespace TurboItems
             string longDesc = "A helmet belonging to a very successful galactic bounty hunter. Use its power wisely.";
             ItemBuilder.SetupItem(item, shortDesc, longDesc, "turbo");
             ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.Coolness, 3);
-            item.quality = PickupObject.ItemQuality.S;
+            item.quality = PickupObject.ItemQuality.EXCLUDED;
 			item.CanBeDropped = false;
 
             List<string> mandatoryConsoleIDs = new List<string>
                 {
                     "heroine",
-                    "turbo:samushelmet"
+                    "turbo:samus'_helmet"
 
                 };
 
