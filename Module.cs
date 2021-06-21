@@ -22,7 +22,8 @@ namespace TurboItems
             AC15Pack.Register();
             TrankGunPack.Register();
             GunbowPack.Register();
-            VoidBottle.Init();
+            ChoiceBottle.Init();
+            YarnBall.Add();
             List<string> mandatoryConsoleIDs = new List<string>
                 {
                 "big_iron",

@@ -8,7 +8,7 @@ namespace TurboItems
         public static void Register()
         {
             string itemName = "Medical Box";
-            string resourceName = "TurboItems/Resources/medical_box";
+            string resourceName = "TurboItems/Resources/ItemBundleSprites/medical_box";
             GameObject obj = new GameObject(itemName);
             var item = obj.AddComponent<MedicalBox>();
             ItemBuilder.AddSpriteToObject(itemName, resourceName, obj);

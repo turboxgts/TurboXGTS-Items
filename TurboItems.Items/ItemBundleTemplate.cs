@@ -9,7 +9,7 @@ namespace TurboItems
         public static void Register()
         {
             string itemName = "ItemBundleTemplate";
-            string resourceName = "TurboItems/Resources/default_item_bundle";
+            string resourceName = "TurboItems/Resources/ItemBundleSprites/default_item_bundle";
             GameObject obj = new GameObject(itemName);
             var item = obj.AddComponent<BundleTemplate>();
             ItemBuilder.AddSpriteToObject(itemName, resourceName, obj);

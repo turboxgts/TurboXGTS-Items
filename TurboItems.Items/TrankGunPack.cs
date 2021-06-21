@@ -9,7 +9,7 @@ namespace TurboItems
         public static void Register()
         {
             string itemName = "Trank Gun pack";
-            string resourceName = "TurboItems/Resources/default_item_bundle";
+            string resourceName = "TurboItems/Resources/ItemBundleSprites/default_item_bundle";
             GameObject obj = new GameObject(itemName);
             var item = obj.AddComponent<TrankGunPack>();
             ItemBuilder.AddSpriteToObject(itemName, resourceName, obj);
@@ -19,6 +19,36 @@ namespace TurboItems
             item.quality = PickupObject.ItemQuality.EXCLUDED;
             item.CanBeDropped = false;
             item.AddItemToSynergy("#NEEDSCISSORS", true);
+
+            List<string> mandatoryConsoleIDs = new List<string>
+            {
+                "turbo:wooden_stake",
+                "turbo:blood_covered_cloak"
+            };
+
+            var synergy = CustomSynergies.Add("Might Slayer", mandatoryConsoleIDs);
+            synergy.statModifiers = new List<StatModifier>
+                {
+                    new StatModifier
+                    {
+                        modifyType = StatModifier.ModifyMethod.MULTIPLICATIVE,
+                        statToBoost = PlayerStats.StatType.Damage,
+                        amount = 0.8f,
+                    },
+                    new StatModifier
+                    {
+                        modifyType = StatModifier.ModifyMethod.MULTIPLICATIVE,
+                        statToBoost = PlayerStats.StatType.ReloadSpeed,
+                        amount = 1.2f,
+                    },
+                    new StatModifier
+                    {
+                        modifyType = StatModifier.ModifyMethod.MULTIPLICATIVE,
+                        statToBoost = PlayerStats.StatType.AdditionalShotPiercing,
+                        amount = 1f,
+                    },
+                };
+            synergy.ActiveWhenGunUnequipped = false;
         }
         protected override void Update()
         {
@@ -37,7 +67,6 @@ namespace TurboItems
         {
             base.Pickup(player);
             LootEngine.GivePrefabToPlayer(PickupObjectDatabase.GetById(42).gameObject, base.Owner);
-            LootEngine.GivePrefabToPlayer(PickupObjectDatabase.GetById(323).gameObject, base.Owner);
         }
 
         public override DebrisObject Drop(PlayerController player)

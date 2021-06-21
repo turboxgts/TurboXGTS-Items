@@ -9,7 +9,7 @@ namespace TurboItems
         public static void Register()
         {
             string itemName = "Samus' Helmet";
-            string resourceName = "TurboItems/Resources/samus_helmet";
+            string resourceName = "TurboItems/Resources/ItemBundleSprites/samus_helmet";
             GameObject obj = new GameObject(itemName);
             var item = obj.AddComponent<SamusHelmet>();
             ItemBuilder.AddSpriteToObject(itemName, resourceName, obj);

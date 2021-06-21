@@ -7,14 +7,14 @@ using UnityEngine;
 
 namespace TurboItems
 {
-    class VoidBottle : PlayerItem
+    class ChoiceBottle : PlayerItem
     {
         public static void Init()
         {
-            string itemName = "Void Bottle";
-            string resourceName = "TurboItems/Resources/void_bottle";
+            string itemName = "Bottle of Choice";
+            string resourceName = "TurboItems/Resources/bottle_of_choice";
             GameObject obj = new GameObject(itemName);
-            var item = obj.AddComponent<VoidBottle>();
+            var item = obj.AddComponent<ChoiceBottle>();
             ItemBuilder.AddSpriteToObject(itemName, resourceName, obj);
             string shortDesc = "Definitely not Identity Crisis";
             string longDesc = "If you look into it, you can see things swirling around.... they're calling to you. Which will you choose?\n\n   Definitely not a shameless ripoff of Nevernamed's Identity Crisis item from Once More Into the Breach.\n\nthanks for the code nn <3 :)";

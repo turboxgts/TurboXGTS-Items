@@ -9,7 +9,7 @@ namespace TurboItems
         public static void Register()
         {
             string itemName = "Gunbow pack";
-            string resourceName = "TurboItems/Resources/default_item_bundle";
+            string resourceName = "TurboItems/Resources/ItemBundleSprites/default_item_bundle";
             GameObject obj = new GameObject(itemName);
             var item = obj.AddComponent<GunbowPack>();
             ItemBuilder.AddSpriteToObject(itemName, resourceName, obj);

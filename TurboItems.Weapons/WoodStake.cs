@@ -20,17 +20,16 @@ namespace TurboItems
             gun.SetAnimationFPS(gun.reloadAnimation, 2);
             gun.AddProjectileModuleFrom("38_special", true, false);
             gun.DefaultModule.ammoType = GameUIAmmoType.AmmoType.SMALL_BULLET;
-            gun.DefaultModule.ammoCost = 0;
+            gun.DefaultModule.ammoCost = 1;
             gun.DefaultModule.shootStyle = ProjectileModule.ShootStyle.SemiAutomatic;
             gun.DefaultModule.sequenceStyle = ProjectileModule.ProjectileSequenceStyle.Random;
             gun.reloadTime = 0f;
             gun.DefaultModule.angleVariance = 0f;
-            gun.DefaultModule.cooldownTime = 1f;
-            gun.DefaultModule.numberOfShotsInClip = 6;
+            gun.DefaultModule.cooldownTime = 0.5f;
+            gun.DefaultModule.numberOfShotsInClip = 1000;
             Gun gun2 = PickupObjectDatabase.GetById(151) as Gun;
             gun.muzzleFlashEffects.type = VFXPoolType.None;
             gun.InfiniteAmmo = true;
-            gun.IsHeroSword = true;
             gun.barrelOffset.transform.localPosition = new Vector3(0.75f, 0f, 0f);
             gun.quality = PickupObject.ItemQuality.EXCLUDED;
             gun.encounterTrackable.EncounterGuid = "muywoodinostakeeeshbad";
@@ -42,7 +41,7 @@ namespace TurboItems
             UnityEngine.Object.DontDestroyOnLoad(projectile);
             gun.DefaultModule.projectiles[0] = projectile;
             projectile.transform.parent = gun.barrelOffset;
-            projectile.baseData.damage *= 1.5f;
+            projectile.baseData.damage *= 1.66f;
             VFXPool WoodenStakeVFXLibrary = VFXLibrary.CreateMuzzleflash("wooden_stake_slash", new List<string> { "wooden_stake_slash_001", "wooden_stake_slash_002", "wooden_stake_slash_003", "wooden_stake_slash_004", }, 10, new List<IntVector2> { new IntVector2(27, 27), new IntVector2(27, 27), new IntVector2(27, 27), new IntVector2(27, 27), }, new List<tk2dBaseSprite.Anchor> {
                 tk2dBaseSprite.Anchor.LowerLeft, tk2dBaseSprite.Anchor.LowerLeft, tk2dBaseSprite.Anchor.LowerLeft, tk2dBaseSprite.Anchor.LowerLeft}, new List<Vector2> { Vector2.zero, Vector2.zero, Vector2.zero, Vector2.zero, }, false, false, false, false, 0, VFXAlignment.Fixed, true, new List<float> { 0, 0, 0, 0 }, new List<Color> { VFXLibrary.emptyColor, VFXLibrary.emptyColor, VFXLibrary.emptyColor, VFXLibrary.emptyColor, });
 

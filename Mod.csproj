@@ -84,6 +84,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BeamToolbox.cs" />
     <Compile Include="ItemAPI\AdvancedGunBehaviour.cs" />
     <Compile Include="ProjectileSlashingBehaviour.cs" />
     <Compile Include="SlashDoer.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="ItemAPI\SpriteBuilder.cs" />
     <Compile Include="TurboItems.Items\SamusHelmet.cs" />
     <Compile Include="TurboItems.Weapons\UrnofSouls.cs" />
+    <Compile Include="TurboItems.Weapons\YarnBall.cs" />
     <Compile Include="Utilities\ReflectionHelpers.cs" />
     <Compile Include="TurboItems.Items\Y.V.Bucks.cs" />
     <Compile Include="VFXLibrary.cs" />
@@ -120,26 +122,36 @@
     <EmbeddedResource Include="Resources\devils_horns.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\samus_helmet.png" />
+    <EmbeddedResource Include="Resources\ItemBundleSprites\samus_helmet.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\beholster_tentacle.png" />
+    <EmbeddedResource Include="Resources\ItemBundleSprites\beholster_tentacle.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\blood_cloak.png" />
+    <EmbeddedResource Include="Resources\ItemBundleSprites\blood_cloak.png" />
     <EmbeddedResource Include="Resources\Y.V.Bucks.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\monster_hunting_kit.png" />
+    <EmbeddedResource Include="Resources\ItemBundleSprites\monster_hunting_kit.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\medical_box.png" />
+    <EmbeddedResource Include="Resources\ItemBundleSprites\medical_box.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\default_item_bundle.png" />
+    <EmbeddedResource Include="Resources\ItemBundleSprites\default_item_bundle.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\void_bottle.png" />
+    <EmbeddedResource Include="Resources\bottle_of_choice.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\BeamSprites\ball_of_yarn_end_001.png" />
+    <EmbeddedResource Include="Resources\BeamSprites\ball_of_yarn_mid_001.png" />
+    <EmbeddedResource Include="Resources\BeamSprites\ball_of_yarn_mid_002.png" />
+    <EmbeddedResource Include="Resources\BeamSprites\ball_of_yarn_mid_003.png" />
+    <EmbeddedResource Include="Resources\BeamSprites\ball_of_yarn_mid_004.png" />
+    <EmbeddedResource Include="Resources\BeamSprites\ball_of_yarn_mid_005.png" />
+    <EmbeddedResource Include="Resources\BeamSprites\ball_of_yarn_mid_006.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using ItemAPI;
+using System.Collections.Generic;
 
 namespace TurboItems
 {
@@ -8,7 +9,7 @@ namespace TurboItems
 		public static void Register()
 		{
 			string itemName = "Blood Covered Cloak";
-			string resourceName = "TurboItems/Resources/blood_cloak";
+			string resourceName = "TurboItems/Resources/ItemBundleSprites/blood_cloak";
 			GameObject obj = new GameObject(itemName);
 			var item = obj.AddComponent<BloodCoveredCloak>();
 			ItemBuilder.AddSpriteToObject(itemName, resourceName, obj);
@@ -18,6 +19,30 @@ namespace TurboItems
 			ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.Curse, 2, StatModifier.ModifyMethod.ADDITIVE);
 			item.quality = PickupObject.ItemQuality.EXCLUDED;
 			item.CanBeDropped = false;
+
+			List<string> mandatoryConsoleIDs = new List<string>
+			{
+				"turbo:wooden_stake",
+				"turbo:blood_covered_cloak"
+			};
+
+			var synergy = CustomSynergies.Add("Might Slayer", mandatoryConsoleIDs);
+			synergy.statModifiers = new List<StatModifier>
+				{
+					new StatModifier
+					{
+						modifyType = StatModifier.ModifyMethod.MULTIPLICATIVE,
+						statToBoost = PlayerStats.StatType.Damage,
+						amount = 0.75f,
+					},
+					new StatModifier
+					{
+						modifyType = StatModifier.ModifyMethod.MULTIPLICATIVE,
+						statToBoost = PlayerStats.StatType.DamageToBosses,
+						amount = 2.5f,
+					},
+				};
+			synergy.ActiveWhenGunUnequipped = false;
 		}
 		public override void Pickup(PlayerController player)
 		{

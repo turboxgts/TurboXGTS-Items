@@ -9,7 +9,7 @@ namespace TurboItems
         public static void Register()
         {
             string itemName = "Monster Hunting Kit";
-            string resourceName = "TurboItems/Resources/monster_hunting_kit";
+            string resourceName = "TurboItems/Resources/ItemBundleSprites/monster_hunting_kit";
             GameObject obj = new GameObject(itemName);
             var item = obj.AddComponent<HuntingKit>();
             ItemBuilder.AddSpriteToObject(itemName, resourceName, obj);
