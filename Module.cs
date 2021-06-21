@@ -1,9 +1,5 @@
 ﻿using ItemAPI;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
 
 namespace TurboItems
 {
@@ -19,9 +15,25 @@ namespace TurboItems
             DevilsHorns.Register();
             BulletSpeedShift.Register();
             SamusHelmet.Register();
-            BeholsterTentacle.Register();
+            HuntingKit.Register();
+            MedicalBox.Register();
+            WoodStake.Add();
+            BloodCoveredCloak.Register();
+            AC15Pack.Register();
+            TrankGunPack.Register();
+            GunbowPack.Register();
+            VoidBottle.Init();
+            List<string> mandatoryConsoleIDs = new List<string>
+                {
+                "big_iron",
+                "hip_holster"
+                };
+            CustomSynergies.Add("Texas Red", mandatoryConsoleIDs);
+
             Log($"{MOD_NAME} v{VERSION} started successfully.", TEXT_COLOR);
         }
+
+        
 
         public static void Log(string text, string color="#FFFFFF")
         {

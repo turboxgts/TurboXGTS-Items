@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using ItemAPI;
 using UnityEngine;
 
@@ -11,23 +9,18 @@ namespace TurboItems
         public static void Register()
         {
             string itemName = "Beholster's Tentacle";
-            string resourceName = "ExampleMod/Resources/beholster_tentacle";
+            string resourceName = "TurboItems/Resources/beholster_tentacle";
             GameObject obj = new GameObject(itemName);
             var item = obj.AddComponent<BeholsterTentacle>();
             ItemBuilder.AddSpriteToObject(itemName, resourceName, obj);
             string shortDesc = "Don't blink";
             string longDesc = "One of the Beholster's tentacles, still fresh with the gun in its hand. Grants the user a weaker form of the Beholster's power.";
             ItemBuilder.SetupItem(item, shortDesc, longDesc, "turbo");
-            item.quality = PickupObject.ItemQuality.S;
+            item.quality = PickupObject.ItemQuality.EXCLUDED;
             item.CanBeDropped = false;
             List<string> mandatoryConsoleIDs = new List<string>
                 {
                     "eye_of_the_beholster",
-                    "m1911",
-                    "com4nd0",
-                    "void_marshal",
-                    "trank_gun",
-                    "machine_pistol",
                     "turbo:beholster's_tentacle",
 
                 };
@@ -71,7 +64,7 @@ namespace TurboItems
             }
             else
             {
-                Owner.InfiniteAmmo.SetOverride("turnygtre", false, null);
+                Owner.InfiniteAmmo.SetOverride("ghghghfsdbrg", false, null);
             }
             base.Update();
         }

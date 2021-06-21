@@ -7,8 +7,8 @@
     <ProjectGuid>{D6D7A494-722E-4763-959B-C2D6B6A42B01}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ExampleMod</RootNamespace>
-    <AssemblyName>ExampleMod</AssemblyName>
+    <RootNamespace>TurboItems</RootNamespace>
+    <AssemblyName>TurboItems</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -84,20 +84,37 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BeholsterTentacle.cs" />
-    <Compile Include="BulletSpeedShift.cs" />
+    <Compile Include="ItemAPI\AdvancedGunBehaviour.cs" />
+    <Compile Include="ProjectileSlashingBehaviour.cs" />
+    <Compile Include="SlashDoer.cs" />
+    <Compile Include="ToolBox.cs" />
+    <Compile Include="TurboItems.Actives\VoidBottle.cs" />
+    <Compile Include="TurboItems.Items\AC15Pack.cs" />
+    <Compile Include="TurboItems.Items\BeholsterTentacle.cs" />
+    <Compile Include="TurboItems.Items\BloodCoveredCloak.cs" />
+    <Compile Include="TurboItems.Items\BulletSpeedShift.cs" />
+    <Compile Include="TurboItems.Items\HuntingKit.cs" />
     <Compile Include="ItemAPI\CompanionBuilder.cs" />
     <Compile Include="ItemAPI\CustomSynergies.cs" />
-    <Compile Include="DevilsHorns.cs" />
+    <Compile Include="TurboItems.Items\DevilsHorns.cs" />
     <Compile Include="ItemAPI\FakePrefab\FakePrefab.cs" />
     <Compile Include="ItemAPI\FakePrefab\FakePrefabHooks.cs" />
     <Compile Include="ItemAPI\ItemBuilder.cs" />
     <Compile Include="ItemAPI\Tools.cs" />
+    <Compile Include="TurboItems.Items\ItemBundleTemplate.cs" />
+    <Compile Include="TurboItems.Items\MedicalBox.cs" />
+    <Compile Include="TurboItems.Items\GunbowPack.cs" />
+    <Compile Include="TurboItems.Items\TrankGunPack.cs" />
+    <Compile Include="TurboItems.Weapons\WoodStake.cs" />
     <Compile Include="Module.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ItemAPI\ResourceExtractor.cs" />
     <Compile Include="ItemAPI\SpriteBuilder.cs" />
-    <Compile Include="SamusHelmet.cs" />
+    <Compile Include="TurboItems.Items\SamusHelmet.cs" />
+    <Compile Include="TurboItems.Weapons\UrnofSouls.cs" />
+    <Compile Include="Utilities\ReflectionHelpers.cs" />
+    <Compile Include="TurboItems.Items\Y.V.Bucks.cs" />
+    <Compile Include="VFXLibrary.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\devils_horns.png" />
@@ -107,6 +124,22 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\beholster_tentacle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\blood_cloak.png" />
+    <EmbeddedResource Include="Resources\Y.V.Bucks.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\monster_hunting_kit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\medical_box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\default_item_bundle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\void_bottle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

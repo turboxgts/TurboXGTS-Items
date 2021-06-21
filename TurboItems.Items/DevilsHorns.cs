@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using UnityEngine;
+﻿using UnityEngine;
 using ItemAPI;
 
 namespace TurboItems
@@ -12,20 +8,14 @@ namespace TurboItems
         public static void Register()
         {
             string itemName = "Devil's Horns";
-            string resourceName = "ExampleMod/Resources/devils_horns";
-
+            string resourceName = "TurboItems/Resources/devils_horns";
             GameObject obj = new GameObject(itemName);
-
             var item = obj.AddComponent<DevilsHorns>();
-
             ItemBuilder.AddSpriteToObject(itemName, resourceName, obj);
-
             string shortDesc = "Not a croissant";
             string longDesc = "Horns that grants power, at the cost of more difficulty.\n\n" + 
                 "(Increases health by 3, coolness by 5, multiplies damage by 1.66, increases reload speed and accuracy by 20%, grants +1 blank per floor, and 10% increased ammo capacity and clip size, BUT at the cost of 4 curse, 100% faster enemy bullets, and 15% slower player bullets.)" ;
-
             ItemBuilder.SetupItem(item, shortDesc, longDesc, "turbo");
-
             ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.Health, 3, StatModifier.ModifyMethod.ADDITIVE);
             ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.Coolness, 5, StatModifier.ModifyMethod.ADDITIVE);
             ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.ReloadSpeed, 0.8f, StatModifier.ModifyMethod.MULTIPLICATIVE);
@@ -37,8 +27,7 @@ namespace TurboItems
             ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.Curse, 4, StatModifier.ModifyMethod.ADDITIVE);
             ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.EnemyProjectileSpeedMultiplier, 2, StatModifier.ModifyMethod.MULTIPLICATIVE);
             ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.ProjectileSpeed, 0.85f, StatModifier.ModifyMethod.MULTIPLICATIVE);
-
-          item.quality = PickupObject.ItemQuality.S;
+            item.quality = PickupObject.ItemQuality.S;
         }
 
         public override void Pickup(PlayerController player)

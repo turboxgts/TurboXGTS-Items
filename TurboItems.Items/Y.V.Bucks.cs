@@ -7,24 +7,27 @@ using ItemAPI;
 
 namespace TurboItems
 {
-    public class BulletSpeedShift : PassiveItem
+    public class YVBucks : PassiveItem
     {
         public static void Register()
         {
-            string itemName = "Bullet Speed Shift";
-            string resourceName = "ExampleMod/Resources/devils_horns";
+            string itemName = "Y.V.Bucks";
+            string resourceName = "TurboItems/Resources/Y.V.Bucks";
             GameObject obj = new GameObject(itemName);
-            var item = obj.AddComponent<DevilsHorns>();
+            var item = obj.AddComponent<YVBucks>();
             ItemBuilder.AddSpriteToObject(itemName, resourceName, obj);
-            string shortDesc = "Player bullet speed down, enemy bullet speed up";
-            string longDesc = "Decreases player bullet speed by 10% and increases enemy bullet speed by 10%, additively.";
+            string shortDesc = "Another one? Really?!";
+            string longDesc = "Every casing gives an additive 0.2% chance to fire out 1 to 4 extra bullets.";
             ItemBuilder.SetupItem(item, shortDesc, longDesc, "turbo");
             ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.EnemyProjectileSpeedMultiplier, 0.1f, StatModifier.ModifyMethod.ADDITIVE);
             ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.ProjectileSpeed, -0.1f, StatModifier.ModifyMethod.ADDITIVE);
             item.quality = PickupObject.ItemQuality.EXCLUDED;
             item.CanBeDropped = false;
         }
+        protected override void Update()
+        {
 
+        }
         public override void Pickup(PlayerController player)
         {
             base.Pickup(player);
