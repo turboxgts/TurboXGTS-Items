@@ -14,7 +14,7 @@ namespace TurboItems
             var item = obj.AddComponent<TrankGunPack>();
             ItemBuilder.AddSpriteToObject(itemName, resourceName, obj);
             string shortDesc = "Tranquilizers uwu";
-            string longDesc = "Comes pre-equipped with the Trank Gun in its tranquilizer form and Angry Bullets.";
+            string longDesc = "Comes pre-equipped with the Trank Gun in its tranquilizer form with extra piercing.";
             ItemBuilder.SetupItem(item, shortDesc, longDesc, "turbo");
             item.quality = PickupObject.ItemQuality.EXCLUDED;
             item.CanBeDropped = false;
