@@ -89,7 +89,7 @@
     <Compile Include="ProjectileSlashingBehaviour.cs" />
     <Compile Include="SlashDoer.cs" />
     <Compile Include="ToolBox.cs" />
-    <Compile Include="TurboItems.Actives\VoidBottle.cs" />
+    <Compile Include="TurboItems.Actives\BottleOfChoice.cs" />
     <Compile Include="TurboItems.Items\ItemBundles\AC15Pack.cs" />
     <Compile Include="TurboItems.Items\ItemBundles\BeholsterTentacle.cs" />
     <Compile Include="TurboItems.Items\ItemBundles\BloodCoveredCloak.cs" />
