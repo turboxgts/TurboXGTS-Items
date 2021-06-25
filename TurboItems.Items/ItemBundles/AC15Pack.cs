@@ -16,7 +16,7 @@ namespace TurboItems
             string shortDesc = "Armorer's favorite!";
             string longDesc = "Comes pre-equipped with AC-15, Nanomachines, Holey Grail, and Armor Synthesizer";
             ItemBuilder.SetupItem(item, shortDesc, longDesc, "turbo");
-            item.quality = PickupObject.ItemQuality.EXCLUDED;
+            item.quality = PickupObject.ItemQuality.SPECIAL;
             item.CanBeDropped = false;
         }
         public override void Pickup(PlayerController player)

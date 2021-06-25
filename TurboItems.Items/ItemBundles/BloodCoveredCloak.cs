@@ -17,7 +17,8 @@ namespace TurboItems
 			string longDesc = "A cloak, stained with blood. Grants the curse of the vampire upon whoever wears it.";
 			ItemBuilder.SetupItem(item, shortDesc, longDesc, "turbo");
 			ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.Curse, 2, StatModifier.ModifyMethod.ADDITIVE);
-			item.quality = PickupObject.ItemQuality.EXCLUDED;
+			ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.EnemyProjectileSpeedMultiplier, 0.75f, StatModifier.ModifyMethod.ADDITIVE);
+			item.quality = PickupObject.ItemQuality.SPECIAL;
 			item.CanBeDropped = false;
 
 			List<string> mandatoryConsoleIDs = new List<string>

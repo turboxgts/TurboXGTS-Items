@@ -17,7 +17,7 @@ namespace TurboItems
             string longDesc = "Contains a pouch of silver bullets, a dueling pistol, and a bullet stamper that engraves an insignia that angers the Jammed.";
             ItemBuilder.SetupItem(item, shortDesc, longDesc, "turbo");
             ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.Curse, 6);
-            item.quality = PickupObject.ItemQuality.EXCLUDED;
+            item.quality = PickupObject.ItemQuality.SPECIAL;
             item.CanBeDropped = false;
 
             List<string> mandatoryConsoleIDs = new List<string>

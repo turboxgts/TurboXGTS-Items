@@ -17,7 +17,7 @@ namespace TurboItems
             string longDesc = "A helmet belonging to a very successful galactic bounty hunter. Use its power wisely.";
             ItemBuilder.SetupItem(item, shortDesc, longDesc, "turbo");
             ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.Coolness, 3);
-            item.quality = PickupObject.ItemQuality.EXCLUDED;
+            item.quality = PickupObject.ItemQuality.SPECIAL;
 			item.CanBeDropped = false;
 
             List<string> mandatoryConsoleIDs = new List<string>

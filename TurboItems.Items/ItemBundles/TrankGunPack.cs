@@ -16,17 +16,17 @@ namespace TurboItems
             string shortDesc = "Tranquilizers uwu";
             string longDesc = "Comes pre-equipped with the Trank Gun in its tranquilizer form with extra piercing.";
             ItemBuilder.SetupItem(item, shortDesc, longDesc, "turbo");
-            item.quality = PickupObject.ItemQuality.EXCLUDED;
+            item.quality = PickupObject.ItemQuality.SPECIAL;
             item.CanBeDropped = false;
             item.AddItemToSynergy("#NEEDSCISSORS", true);
 
             List<string> mandatoryConsoleIDs = new List<string>
             {
-                "turbo:wooden_stake",
-                "turbo:blood_covered_cloak"
+                "trank_gun",
+                "turbo:trank_gun_pack"
             };
 
-            var synergy = CustomSynergies.Add("Might Slayer", mandatoryConsoleIDs);
+            var synergy = CustomSynergies.Add("Why isn't the trank gun already piercing?", mandatoryConsoleIDs);
             synergy.statModifiers = new List<StatModifier>
                 {
                     new StatModifier

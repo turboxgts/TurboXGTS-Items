@@ -15,7 +15,7 @@ namespace TurboItems
             string shortDesc = "Heals!";
             string longDesc = "Used by the medics as an on-the-go solution for all healing-based needs!";
             ItemBuilder.SetupItem(item, shortDesc, longDesc, "turbo");
-            item.quality = PickupObject.ItemQuality.EXCLUDED;
+            item.quality = PickupObject.ItemQuality.SPECIAL;
             item.CanBeDropped = false;
             ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.AdditionalItemCapacity, 1);
         }

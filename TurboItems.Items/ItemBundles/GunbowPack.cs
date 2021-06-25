@@ -16,7 +16,7 @@ namespace TurboItems
             string shortDesc = "BANG!";
             string longDesc = "Comes pre-equipped with Rocket-Powered Bullets and the Gunbow";
             ItemBuilder.SetupItem(item, shortDesc, longDesc, "turbo");
-            item.quality = PickupObject.ItemQuality.EXCLUDED;
+            item.quality = PickupObject.ItemQuality.SPECIAL;
             item.CanBeDropped = false;
 
             List<string> mandatoryConsoleIDs = new List<string>

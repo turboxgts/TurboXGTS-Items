@@ -16,7 +16,7 @@ namespace TurboItems
             string shortDesc = "Don't spill it";
             string longDesc = "The ice tray of a very cool gungeoneer.";
             ItemBuilder.SetupItem(item, shortDesc, longDesc, "turbo");
-            item.quality = PickupObject.ItemQuality.EXCLUDED;
+            item.quality = PickupObject.ItemQuality.SPECIAL;
             ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.Coolness, 2);
             ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.AdditionalItemCapacity, 1);
             item.CanBeDropped = false;
