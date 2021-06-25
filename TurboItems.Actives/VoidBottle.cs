@@ -25,7 +25,7 @@ namespace TurboItems
         }
         protected override void DoEffect(PlayerController player)
         {
-            int Bundle = UnityEngine.Random.Range(1, 8);
+            int Bundle = UnityEngine.Random.Range(1, 9);
             if (Bundle == 1)
             {
                 player.GiveItem("turbo:samus'_helmet");
@@ -53,6 +53,10 @@ namespace TurboItems
             else if (Bundle == 7)
             {
                 player.GiveItem("turbo:medical_box");
+            }
+            else if (Bundle == 8)
+            {
+                player.GiveItem("turbo:ice_tray");
             }
         }
     }

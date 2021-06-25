@@ -13,8 +13,8 @@ namespace TurboItems
             Gun gun = ETGMod.Databases.Items.NewGun("Wooden Stake", "wooden_stake");
             Game.Items.Rename("outdated_gun_mods:wooden_stake", "turbo:wooden_stake");
             gun.gameObject.AddComponent<WoodStake>();
-            gun.SetShortDescription("Stab Stab Stab");
-            gun.SetLongDescription("Taken from the chest of a vampire who had an unsuccessful attemp on their life. Works in a pinch against tough enemies.");
+            gun.SetShortDescription("Stabby Stab");
+            gun.SetLongDescription("Taken from the chest of a vampire who had an unsuccessful attempt on their life. Works in a pinch against tough enemies.");
             gun.SetupSprite(null, "wooden_stake_idle_001", 8);
             gun.SetAnimationFPS(gun.shootAnimation, 12);
             gun.SetAnimationFPS(gun.reloadAnimation, 2);
@@ -79,7 +79,7 @@ namespace TurboItems
             if (gun.IsReloading && this.HasReloaded)
             {
                 HasReloaded = false;
-                AkSoundEngine.PostEvent("m_WPN_blasphemy_reload_01", base.gameObject);
+                AkSoundEngine.PostEvent("Play_WPN_blasphemy_reload_01", base.gameObject);
                 base.OnReloadPressed(player, gun, bSOMETHING);
 
             }

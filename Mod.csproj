@@ -90,11 +90,11 @@
     <Compile Include="SlashDoer.cs" />
     <Compile Include="ToolBox.cs" />
     <Compile Include="TurboItems.Actives\VoidBottle.cs" />
-    <Compile Include="TurboItems.Items\AC15Pack.cs" />
-    <Compile Include="TurboItems.Items\BeholsterTentacle.cs" />
-    <Compile Include="TurboItems.Items\BloodCoveredCloak.cs" />
+    <Compile Include="TurboItems.Items\ItemBundles\AC15Pack.cs" />
+    <Compile Include="TurboItems.Items\ItemBundles\BeholsterTentacle.cs" />
+    <Compile Include="TurboItems.Items\ItemBundles\BloodCoveredCloak.cs" />
     <Compile Include="TurboItems.Items\BulletSpeedShift.cs" />
-    <Compile Include="TurboItems.Items\HuntingKit.cs" />
+    <Compile Include="TurboItems.Items\ItemBundles\HuntingKit.cs" />
     <Compile Include="ItemAPI\CompanionBuilder.cs" />
     <Compile Include="ItemAPI\CustomSynergies.cs" />
     <Compile Include="TurboItems.Items\DevilsHorns.cs" />
@@ -102,16 +102,19 @@
     <Compile Include="ItemAPI\FakePrefab\FakePrefabHooks.cs" />
     <Compile Include="ItemAPI\ItemBuilder.cs" />
     <Compile Include="ItemAPI\Tools.cs" />
-    <Compile Include="TurboItems.Items\ItemBundleTemplate.cs" />
-    <Compile Include="TurboItems.Items\MedicalBox.cs" />
-    <Compile Include="TurboItems.Items\GunbowPack.cs" />
-    <Compile Include="TurboItems.Items\TrankGunPack.cs" />
+    <Compile Include="TurboItems.Items\ItemBundles\IceTray.cs" />
+    <Compile Include="TurboItems.Items\ItemBundles\ItemBundleTemplate.cs" />
+    <Compile Include="TurboItems.Items\ItemBundles\MedicalBox.cs" />
+    <Compile Include="TurboItems.Items\ItemBundles\GunbowPack.cs" />
+    <Compile Include="TurboItems.Items\ItemBundles\TrankGunPack.cs" />
+    <Compile Include="TurboItems.Weapons\HammerBro.cs" />
+    <Compile Include="TurboItems.Weapons\SelfHarmBeamWeaponBecauseNevernamedToldMeItWasOkayTo.cs" />
     <Compile Include="TurboItems.Weapons\WoodStake.cs" />
     <Compile Include="Module.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ItemAPI\ResourceExtractor.cs" />
     <Compile Include="ItemAPI\SpriteBuilder.cs" />
-    <Compile Include="TurboItems.Items\SamusHelmet.cs" />
+    <Compile Include="TurboItems.Items\ItemBundles\SamusHelmet.cs" />
     <Compile Include="TurboItems.Weapons\UrnofSouls.cs" />
     <Compile Include="TurboItems.Weapons\YarnBall.cs" />
     <Compile Include="Utilities\ReflectionHelpers.cs" />
@@ -143,15 +146,16 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\bottle_of_choice.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\ItemBundleSprites\ice_tray.png" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\BeamSprites\ball_of_yarn_end_001.png" />
     <EmbeddedResource Include="Resources\BeamSprites\ball_of_yarn_mid_001.png" />
-    <EmbeddedResource Include="Resources\BeamSprites\ball_of_yarn_mid_002.png" />
-    <EmbeddedResource Include="Resources\BeamSprites\ball_of_yarn_mid_003.png" />
-    <EmbeddedResource Include="Resources\BeamSprites\ball_of_yarn_mid_004.png" />
-    <EmbeddedResource Include="Resources\BeamSprites\ball_of_yarn_mid_005.png" />
-    <EmbeddedResource Include="Resources\BeamSprites\ball_of_yarn_mid_006.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\BeamSprites\laser_disk_end_001.png" />
+    <EmbeddedResource Include="Resources\BeamSprites\laser_disk_mid_001.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -26,7 +26,7 @@ namespace TurboItems
             LootEngine.GivePrefabToPlayer(PickupObjectDatabase.GetById(63).gameObject, base.Owner);
             LootEngine.GivePrefabToPlayer(PickupObjectDatabase.GetById(259).gameObject, base.Owner);
             LootEngine.GivePrefabToPlayer(PickupObjectDatabase.GetById(424).gameObject, base.Owner);
-            LootEngine.GivePrefabToPlayer(PickupObjectDatabase.GetById(558).gameObject, base.Owner);
+            LootEngine.GivePrefabToPlayer(PickupObjectDatabase.GetById(453).gameObject, base.Owner);
         }
 
         public override DebrisObject Drop(PlayerController player)

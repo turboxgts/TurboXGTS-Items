@@ -14,16 +14,20 @@ namespace TurboItems
             ItemBuilder.Init();
             DevilsHorns.Register();
             BulletSpeedShift.Register();
+            YarnBall.Add();
+            SelfHarmBeamWeaponBecauseNevernamedToldMeItWasOkayTo.Add();
+            WoodStake.Add();
+            HammerBro.Add();
             SamusHelmet.Register();
             HuntingKit.Register();
             MedicalBox.Register();
-            WoodStake.Add();
             BloodCoveredCloak.Register();
             AC15Pack.Register();
             TrankGunPack.Register();
             GunbowPack.Register();
+            IceTray.Register();
             ChoiceBottle.Init();
-            YarnBall.Add();
+
             List<string> mandatoryConsoleIDs = new List<string>
                 {
                 "big_iron",

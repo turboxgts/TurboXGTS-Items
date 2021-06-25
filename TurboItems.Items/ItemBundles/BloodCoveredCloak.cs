@@ -32,12 +32,6 @@ namespace TurboItems
 					new StatModifier
 					{
 						modifyType = StatModifier.ModifyMethod.MULTIPLICATIVE,
-						statToBoost = PlayerStats.StatType.Damage,
-						amount = 0.75f,
-					},
-					new StatModifier
-					{
-						modifyType = StatModifier.ModifyMethod.MULTIPLICATIVE,
 						statToBoost = PlayerStats.StatType.DamageToBosses,
 						amount = 2.5f,
 					},

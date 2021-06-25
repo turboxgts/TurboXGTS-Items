@@ -5,8 +5,10 @@ using System.Text;
 using System.Collections;
 using Gungeon;
 using MonoMod;
-using UnityEngine;
 using ItemAPI;
+using UnityEngine;
+using System.Reflection;
+
 
 namespace TurboItems
 {
@@ -31,17 +33,18 @@ namespace TurboItems
 
             //GUN STATS
             gun.doesScreenShake = false;
-            gun.DefaultModule.ammoCost = 10;
+            gun.DefaultModule.ammoCost = 1;
             gun.DefaultModule.angleVariance = 0;
             gun.DefaultModule.shootStyle = ProjectileModule.ShootStyle.Beam;
             gun.DefaultModule.sequenceStyle = ProjectileModule.ProjectileSequenceStyle.Random;
             gun.reloadTime = 0f;
             gun.muzzleFlashEffects.type = VFXPoolType.None;
             gun.DefaultModule.cooldownTime = 0.001f;
-            gun.DefaultModule.numberOfShotsInClip = 500;
+            gun.SetBaseMaxAmmo(1000);
+            gun.DefaultModule.numberOfShotsInClip = 1000;
             gun.DefaultModule.ammoType = GameUIAmmoType.AmmoType.BEAM;
-            gun.barrelOffset.transform.localPosition = new Vector3(0.93f, 0.18f, 0f);
-            gun.InfiniteAmmo = true;
+            gun.barrelOffset.transform.localPosition = new Vector3(0.875f, 0.5f, 0f);
+            
 
             gun.GetComponent<tk2dSpriteAnimator>().GetClipByName(gun.shootAnimation).wrapMode = tk2dSpriteAnimationClip.WrapMode.LoopSection;
             gun.GetComponent<tk2dSpriteAnimator>().GetClipByName(gun.shootAnimation).loopStart = 1;
@@ -49,11 +52,6 @@ namespace TurboItems
             List<string> BeamAnimPaths = new List<string>()
             {
                 "TurboItems/Resources/BeamSprites/ball_of_yarn_mid_001",
-                "TurboItems/Resources/BeamSprites/ball_of_yarn_mid_002",
-                "TurboItems/Resources/BeamSprites/ball_of_yarn_mid_003",
-                "TurboItems/Resources/BeamSprites/ball_of_yarn_mid_004",
-                "TurboItems/Resources/BeamSprites/ball_of_yarn_mid_005",
-                "TurboItems/Resources/BeamSprites/ball_of_yarn_mid_006",
             };
             List<string> BeamEndPaths = new List<string>()
             {
@@ -103,6 +101,25 @@ namespace TurboItems
             gun.quality = PickupObject.ItemQuality.C;
             ETGMod.Databases.Items.Add(gun, null, "ANY");
 
+        }
+        private bool HasReloaded;
+        public void PostProcessBeamTick(BeamController beam, SpeculativeRigidbody hitRigidBody, float tickrate)
+        {
+            AIActor aiactor = hitRigidBody.aiActor;
+            if (aiactor)
+            {
+                base.gun.CurrentAmmo += 1;
+            }
+        }
+        public override void OnReloadPressed(PlayerController player, Gun gun, bool bSOMETHING)
+        {
+            if (gun.IsReloading && this.HasReloaded)
+            {
+                HasReloaded = false;
+                AkSoundEngine.PostEvent("Stop_WPN_ALL", base.gameObject);
+                base.OnReloadPressed(player, gun, bSOMETHING);
+
+            }
         }
         public YarnBall()
         {
