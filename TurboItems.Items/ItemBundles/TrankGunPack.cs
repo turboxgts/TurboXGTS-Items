@@ -43,7 +43,7 @@ namespace TurboItems
                     },
                     new StatModifier
                     {
-                        modifyType = StatModifier.ModifyMethod.MULTIPLICATIVE,
+                        modifyType = StatModifier.ModifyMethod.ADDITIVE,
                         statToBoost = PlayerStats.StatType.AdditionalShotPiercing,
                         amount = 1f,
                     },

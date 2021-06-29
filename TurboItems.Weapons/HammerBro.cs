@@ -7,14 +7,10 @@ using ItemAPI;
 
 namespace TurboItems
 {
-
     class HammerBro : AdvancedGunBehaviour
     {
-
-
         public static void Add()
         {
-
             Gun gun = ETGMod.Databases.Items.NewGun("Hammer Bro. Hammer", "hammer_bro");
             var behav = gun.gameObject.AddComponent<HammerBro>();
             behav.overrideNormalFireAudio = "Play_OBJ_cigarette_throw_01";
@@ -43,19 +39,43 @@ namespace TurboItems
             FakePrefab.MarkAsFakePrefab(projectile.gameObject);
             UnityEngine.Object.DontDestroyOnLoad(projectile);
             gun.DefaultModule.projectiles[0] = projectile;
-            projectile.baseData.damage = 7f;
+            projectile.baseData.damage = 5f;
             projectile.baseData.speed = 25f;
             projectile.baseData.force = 20f;
             projectile.baseData.range = 8.5f;
+            projectile.pierceMinorBreakables = true;
             projectile.transform.parent = gun.barrelOffset;
             ETGMod.Databases.Items.Add(gun, null, "ANY");
-
         }
         public override void OnReloadPressed(PlayerController player, Gun gun, bool bSOMETHING)
         {
                 AkSoundEngine.PostEvent("Stop_WPN_All", base.gameObject);
                 base.OnReloadPressed(player, gun, bSOMETHING);
                 AkSoundEngine.PostEvent("Play_WPN_brickgun_reload_01", base.gameObject);
+        }
+
+        public override void PostProcessProjectile(Projectile projectile)
+        {
+            PlayerController player = projectile.Owner as PlayerController;
+            base.PostProcessProjectile(projectile);
+            try
+            {
+                projectile.specRigidbody.OnPreRigidbodyCollision = (SpeculativeRigidbody.OnPreRigidbodyCollisionDelegate)Delegate.Combine(projectile.specRigidbody.OnPreRigidbodyCollision, new SpeculativeRigidbody.OnPreRigidbodyCollisionDelegate(this.HandlePreCollision));
+            }
+            catch (Exception ex)
+            {
+                ETGModConsole.Log(ex.Message, false);
+            }
+        }
+        private void HandlePreCollision(SpeculativeRigidbody myRigidbody, PixelCollider myPixelCollider, SpeculativeRigidbody otherRigidbody, PixelCollider otherPixelCollider)
+        {
+            if (otherRigidbody.gameObject.name != null)
+            {
+                if (otherRigidbody.gameObject.name == "Table_Vertical" || otherRigidbody.gameObject.name == "Table_Horizontal")
+                {
+                    PhysicsEngine.SkipCollision = true;
+                }
+            }
         }
     }
 }

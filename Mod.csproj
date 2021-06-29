@@ -84,12 +84,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BeamToolbox.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="TurboItems.Weapons\MirrorSwordBeam.cs" />
+    <Compile Include="TurboItems.Weapons\ReloadForm1.cs" />
+    <Compile Include="TurboItems.Weapons\ReloadForm2.cs" />
+    <Compile Include="TurboItems.Weapons\TestGun.cs" />
+    <Compile Include="Utilities\BeamToolbox.cs" />
     <Compile Include="ItemAPI\AdvancedGunBehaviour.cs" />
-    <Compile Include="ProjectileSlashingBehaviour.cs" />
-    <Compile Include="SlashDoer.cs" />
-    <Compile Include="ToolBox.cs" />
+    <Compile Include="Utilities\ListOfGunAbilities.cs" />
+    <Compile Include="Utilities\ProjectileSlashingBehaviour.cs" />
+    <Compile Include="Utilities\SlashDoer.cs" />
+    <Compile Include="Utilities\ToolBox.cs" />
     <Compile Include="TurboItems.Actives\BottleOfChoice.cs" />
+    <Compile Include="TurboItems.Actives\KoopaShell.cs" />
     <Compile Include="TurboItems.Items\ItemBundles\AC15Pack.cs" />
     <Compile Include="TurboItems.Items\ItemBundles\BeholsterTentacle.cs" />
     <Compile Include="TurboItems.Items\ItemBundles\BloodCoveredCloak.cs" />
@@ -107,7 +114,9 @@
     <Compile Include="TurboItems.Items\ItemBundles\MedicalBox.cs" />
     <Compile Include="TurboItems.Items\ItemBundles\GunbowPack.cs" />
     <Compile Include="TurboItems.Items\ItemBundles\TrankGunPack.cs" />
+    <Compile Include="TurboItems.Weapons\DefinitelyNotBrimstone.cs" />
     <Compile Include="TurboItems.Weapons\HammerBro.cs" />
+    <Compile Include="TurboItems.Weapons\MirrorSword.cs" />
     <Compile Include="TurboItems.Weapons\SelfHarmBeamWeaponBecauseNevernamedToldMeItWasOkayTo.cs" />
     <Compile Include="TurboItems.Weapons\WoodStake.cs" />
     <Compile Include="Module.cs" />
@@ -119,7 +128,7 @@
     <Compile Include="TurboItems.Weapons\YarnBall.cs" />
     <Compile Include="Utilities\ReflectionHelpers.cs" />
     <Compile Include="TurboItems.Items\Y.V.Bucks.cs" />
-    <Compile Include="VFXLibrary.cs" />
+    <Compile Include="Utilities\VFXLibrary.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\devils_horns.png" />
@@ -156,6 +165,17 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\BeamSprites\laser_disk_end_001.png" />
     <EmbeddedResource Include="Resources\BeamSprites\laser_disk_mid_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\BeamSprites\absolutely_not_brimstone_end_001.png" />
+    <EmbeddedResource Include="Resources\BeamSprites\absolutely_not_brimstone_mid_001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\koopa_shell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\BeamSprites\wip2_end_001.png" />
+    <EmbeddedResource Include="Resources\BeamSprites\wip2_mid_001.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

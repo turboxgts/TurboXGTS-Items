@@ -6,7 +6,7 @@ namespace TurboItems
     public class Module : ETGModule
     {
         public static readonly string MOD_NAME = "TurboXGTSItems";
-        public static readonly string VERSION = "1.0.0";
+        public static readonly string VERSION = "2.1.0";
         public static readonly string TEXT_COLOR = "#00FFFF";
 
         public override void Start()
@@ -18,6 +18,14 @@ namespace TurboItems
             SelfHarmBeamWeaponBecauseNevernamedToldMeItWasOkayTo.Add();
             WoodStake.Add();
             HammerBro.Add();
+            DefinitelyNotBrimstone.Add();
+            MirrorSword.Add();
+            MirrorSwordBeam.Add();
+            //TestGun.Add();
+            //ReloadForm1.Add();
+            //ReloadForm2.Add();
+            ChoiceBottle.Init();
+            KoopaShell.Init();
             SamusHelmet.Register();
             HuntingKit.Register();
             MedicalBox.Register();
@@ -26,7 +34,6 @@ namespace TurboItems
             TrankGunPack.Register();
             GunbowPack.Register();
             IceTray.Register();
-            ChoiceBottle.Init();
 
             List<string> mandatoryConsoleIDs = new List<string>
                 {

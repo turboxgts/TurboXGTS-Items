@@ -12,57 +12,56 @@ using System.Reflection;
 
 namespace TurboItems
 {
-    class YarnBall : AdvancedGunBehaviour
+    class ReloadForm2 : AdvancedGunBehaviour
     {
         public static void Add()
         {
-
-            Gun gun = ETGMod.Databases.Items.NewGun("Ball of Yarn", "ball_of_yarn");
-            Game.Items.Rename("outdated_gun_mods:ball_of_yarn", "turbo:ball_of_yarn");
-            var behav = gun.gameObject.AddComponent<YarnBall>();
+            Gun gun = ETGMod.Databases.Items.NewGun("wip2", "wip2");
+            Game.Items.Rename("outdated_gun_mods:wip2", "turbo:wip2");
+            var behav = gun.gameObject.AddComponent<ReloadForm2>();
             behav.overrideNormalFireAudio = "Play_ENM_shelleton_beam_01";
             behav.preventNormalFireAudio = true;
-            gun.SetShortDescription("Crochet Rocket");
-            gun.SetLongDescription("Very fuzzy");
-
-            gun.SetupSprite(null, "ball_of_yarn_idle_001", 8);
-            gun.gunHandedness = GunHandedness.HiddenOneHanded;
-            gun.SetAnimationFPS(gun.shootAnimation, 8);
+            gun.SetShortDescription("wip");
+            gun.SetLongDescription("wip.");
+            gun.SetupSprite(null, "wip2_idle_001", 12);
+            gun.SetAnimationFPS(gun.reloadAnimation, 24);
+            gun.SetAnimationFPS(gun.shootAnimation, 24);
             gun.isAudioLoop = true;
             gun.AddProjectileModuleFrom(PickupObjectDatabase.GetById(86) as Gun, true, false);
 
             //GUN STATS
             gun.doesScreenShake = false;
-            gun.DefaultModule.ammoCost = 1;
+            gun.DefaultModule.ammoCost = 3;
             gun.DefaultModule.angleVariance = 0;
             gun.DefaultModule.shootStyle = ProjectileModule.ShootStyle.Beam;
             gun.DefaultModule.sequenceStyle = ProjectileModule.ProjectileSequenceStyle.Random;
-            gun.reloadTime = 0f;
+            gun.encounterTrackable.EncounterGuid = "WIP2";
+            gun.reloadTime = 0.33f;
             gun.muzzleFlashEffects.type = VFXPoolType.None;
             gun.DefaultModule.cooldownTime = 0.001f;
-            gun.SetBaseMaxAmmo(1000);
-            gun.DefaultModule.numberOfShotsInClip = 1000;
+            gun.SetBaseMaxAmmo(250);
+            gun.DefaultModule.numberOfShotsInClip = 15;
             gun.DefaultModule.ammoType = GameUIAmmoType.AmmoType.BEAM;
             gun.barrelOffset.transform.localPosition = new Vector3(0.875f, 0.5f, 0f);
-            
+
 
             gun.GetComponent<tk2dSpriteAnimator>().GetClipByName(gun.shootAnimation).wrapMode = tk2dSpriteAnimationClip.WrapMode.LoopSection;
             gun.GetComponent<tk2dSpriteAnimator>().GetClipByName(gun.shootAnimation).loopStart = 1;
 
             List<string> BeamAnimPaths = new List<string>()
             {
-                "TurboItems/Resources/BeamSprites/ball_of_yarn_mid_001",
+                "TurboItems/Resources/BeamSprites/wip2_mid_001",
             };
             List<string> BeamEndPaths = new List<string>()
             {
-                "TurboItems/Resources/BeamSprites/ball_of_yarn_end_001",
+                "TurboItems/Resources/BeamSprites/wip2_end_001",
             };
 
             //BULLET STATS
             Projectile projectile = UnityEngine.Object.Instantiate<Projectile>((PickupObjectDatabase.GetById(86) as Gun).DefaultModule.projectiles[0]);
 
             BasicBeamController beamComp = projectile.GenerateBeamPrefab(
-                "TurboItems/Resources/BeamSprites/ball_of_yarn_mid_001",
+                "TurboItems/Resources/BeamSprites/wip2_mid_001",
                 new Vector2(5, 3),
                 new Vector2(0, 1),
                 BeamAnimPaths,
@@ -89,16 +88,15 @@ namespace TurboItems
             UnityEngine.Object.DontDestroyOnLoad(projectile);
             projectile.baseData.damage = 12f;
             projectile.baseData.force *= 0.5f;
-            projectile.baseData.range = 15f;
+            projectile.baseData.range = 1000f;
             projectile.baseData.speed *= 3f;
 
             beamComp.penetration = 0;
-            beamComp.boneType = BasicBeamController.BeamBoneType.Projectile;
-            beamComp.interpolateStretchedBones = true;
+            beamComp.boneType = BasicBeamController.BeamBoneType.Straight;
 
             gun.DefaultModule.projectiles[0] = projectile;
 
-            gun.quality = PickupObject.ItemQuality.C;
+            gun.quality = PickupObject.ItemQuality.EXCLUDED;
             ETGMod.Databases.Items.Add(gun, null, "ANY");
 
         }
@@ -113,7 +111,7 @@ namespace TurboItems
 
             }
         }
-        public YarnBall()
+        public ReloadForm2()
         {
 
         }

@@ -18,7 +18,7 @@ namespace TurboItems
             ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.EnemyProjectileSpeedMultiplier, 0.1f, StatModifier.ModifyMethod.ADDITIVE);
             ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.ProjectileSpeed, -0.1f, StatModifier.ModifyMethod.ADDITIVE);
             item.quality = PickupObject.ItemQuality.EXCLUDED;
-            item.CanBeDropped = false;
+            item.CanBeDropped = true;
         }
 
         public override void Pickup(PlayerController player)
