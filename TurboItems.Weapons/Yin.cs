@@ -25,8 +25,8 @@ namespace TurboItems
             gun.DefaultModule.shootStyle = ProjectileModule.ShootStyle.SemiAutomatic;
             gun.DefaultModule.sequenceStyle = ProjectileModule.ProjectileSequenceStyle.Random;
             gun.reloadTime = 1.1f;
-            gun.DefaultModule.cooldownTime = 0.1f;
-            gun.DefaultModule.numberOfShotsInClip = 6;
+            gun.DefaultModule.cooldownTime = 0.2f;
+            gun.DefaultModule.numberOfShotsInClip = 8;
             gun.InfiniteAmmo = true;
             gun.ItemSpansBaseQualityTiers = true;
             gun.encounterTrackable.EncounterGuid = "u7hhy7ujyh7ujybhjuybhj ybhu jy7 ik7y ";
@@ -37,7 +37,7 @@ namespace TurboItems
             UnityEngine.Object.DontDestroyOnLoad(projectile);
             gun.DefaultModule.projectiles[0] = projectile;
             projectile.baseData.damage = 7f;
-            projectile.baseData.speed = 22.5f;
+            projectile.baseData.speed = 30f;
             projectile.transform.parent = gun.barrelOffset;
             ETGMod.Databases.Items.Add(gun, null, "ANY");
 

@@ -34,7 +34,7 @@ namespace TurboItems
             FakePrefab.MarkAsFakePrefab(projectile.gameObject);
             UnityEngine.Object.DontDestroyOnLoad(projectile);
             gun.DefaultModule.projectiles[0] = projectile;
-            projectile.baseData.damage = 7f;
+            projectile.baseData.damage = 5.5f;
             projectile.baseData.speed = 22.5f;
             projectile.transform.parent = gun.barrelOffset;
             ETGMod.Databases.Items.Add(gun, null, "ANY");
