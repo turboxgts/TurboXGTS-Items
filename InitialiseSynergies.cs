@@ -10,7 +10,7 @@ namespace TurboItems
     {
         public static void DoInitialisation()
         {
-            List<string> mandatorySynergyItemsTestSynergy = new List<string>() { "turbo:test_gun", "turbo:basic_gun" };
+            List<string> mandatorySynergyItemsTestSynergy = new List<string>() { "turbo:yin", "turbo:yang" };
             CustomSynergies.Add("Yin and Yang", mandatorySynergyItemsTestSynergy);
             //List<string> mandatorySynergyGargoylesHandsSynergy = new List<string>() { "turbo:gargoyles_hand_left", "turbo:gargoyles_right_hand" };
             //CustomSynergies.Add("Gargoyle's Hands", mandatorySynergyGargoylesHandsSynergy);
