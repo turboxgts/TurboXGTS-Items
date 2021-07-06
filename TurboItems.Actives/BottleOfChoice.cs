@@ -25,14 +25,15 @@ namespace TurboItems
         }
         protected override void DoEffect(PlayerController player)
         {
-            int Bundle = UnityEngine.Random.Range(1, 9);
+            int Bundle = UnityEngine.Random.Range(1, 8);
             if (Bundle == 1)
             {
                 player.GiveItem("turbo:samus'_helmet");
             }
             else if (Bundle == 2)
             {
-                player.GiveItem("turbo:blood_covered_cloak");
+                //player.GiveItem("turbo:blood_covered_cloak");
+                player.GiveItem("turbo:ice_tray");
             }
             else if (Bundle == 3)
             {
@@ -54,10 +55,10 @@ namespace TurboItems
             {
                 player.GiveItem("turbo:medical_box");
             }
-            else if (Bundle == 8)
-            {
-                player.GiveItem("turbo:ice_tray");
-            }
+            //else if (Bundle == 8)
+            //{
+                //player.GiveItem("turbo:ice_tray");
+            //}
         }
     }
 }

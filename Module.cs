@@ -19,11 +19,15 @@ namespace TurboItems
             WoodStake.Add();
             HammerBro.Add();
             DefinitelyNotBrimstone.Add();
-            MirrorSword.Add();
-            MirrorSwordBeam.Add();
-            //TestGun.Add();
-            //ReloadForm1.Add();
-            //ReloadForm2.Add();
+            //MirrorSword.Add();
+            MirrorSwordMeleeOnly.Add();
+            //MirrorSwordBeam.Add(); //will be unused until something fixes the weird beam ammo bug
+            //MirrorSwordLaser.Add(); //unused 'til I figure out some stuffs
+            //GargoyleHandLeft.Add();
+            //GargoyleHandRight.Add();
+            ClockworkAssaultRifle.Add();
+            MasterSword.Add();
+            PhrenicBow.Add();
             ChoiceBottle.Init();
             KoopaShell.Init();
             SamusHelmet.Register();
@@ -34,14 +38,10 @@ namespace TurboItems
             TrankGunPack.Register();
             GunbowPack.Register();
             IceTray.Register();
-
-            List<string> mandatoryConsoleIDs = new List<string>
-                {
-                "big_iron",
-                "hip_holster"
-                };
-            CustomSynergies.Add("Texas Red", mandatoryConsoleIDs);
-
+            Yin.Add();
+            Yang.Add();
+            InitialiseSynergies.DoInitialisation();
+            SynergyFormInitialiser.SynergyInitialiser();
             Log($"{MOD_NAME} v{VERSION} started successfully.", TEXT_COLOR);
         }
 

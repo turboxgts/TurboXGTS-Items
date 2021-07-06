@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
+using MonoMod.RuntimeDetour;
 using Gungeon;
 using ItemAPI;
 using UnityEngine;
@@ -13,9 +15,11 @@ namespace TurboItems
         {
             Gun gun = ETGMod.Databases.Items.NewGun("Mirror Sword", "mirror_sword");
             Game.Items.Rename("outdated_gun_mods:mirror_sword", "turbo:mirror_sword");
-            gun.gameObject.AddComponent<ReloadForm1>();
+            var behav = gun.gameObject.AddComponent<MirrorSword>();
+            behav.overrideNormalFireAudio = "Play_WPN_blasphemy_shot_01";
+            behav.preventNormalFireAudio = true;
             gun.SetShortDescription("SHWING");
-            gun.SetLongDescription("A dull sword, presumably for use in an old ceremony before the Great Bullet struck the Gungeon. Can deflect bullets or turn into a temporary low-power beam. Slightly angers the Jammed.");
+            gun.SetLongDescription("A dull sword, presumably for use in an old ceremony before the Great Bullet struck the Gungeon. Has gained new power through the Gret Bullet's energy seeping into it. Slightly angers the Jammed.");
             gun.SetupSprite(null, "mirror_sword_idle_001", 8);
             tk2dSpriteAnimationClip fireClip2 = gun.sprite.spriteAnimator.GetClipByName("mirror_sword_fire");
 
@@ -43,21 +47,23 @@ namespace TurboItems
             gun.AddPassiveStatModifier(PlayerStats.StatType.Curse, 1f, StatModifier.ModifyMethod.ADDITIVE);
 
             gun.DefaultModule.ammoType = GameUIAmmoType.AmmoType.SMALL_BULLET; //mag sprite
-            gun.DefaultModule.ammoCost = 1;
-            gun.DefaultModule.shootStyle = ProjectileModule.ShootStyle.SemiAutomatic;
+            gun.DefaultModule.ammoCost = 0;
             gun.DefaultModule.sequenceStyle = ProjectileModule.ProjectileSequenceStyle.Random;
             gun.DefaultModule.angleVariance = 0f;
-            gun.DefaultModule.cooldownTime = 0.8f;
             gun.DefaultModule.numberOfShotsInClip = -1;
-
             gun.quality = PickupObject.ItemQuality.C;
             gun.encounterTrackable.EncounterGuid = "this is an idea";
             gun.gunClass = GunClass.NONE;
             gun.barrelOffset.transform.localPosition = new Vector3(0.25f, 0.375f, 0);
             gun.muzzleFlashEffects.type = VFXPoolType.None;
             gun.reloadTime = 0;
-            gun.InfiniteAmmo = true;
+            gun.SetBaseMaxAmmo(25);
+            gun.DefaultModule.shootStyle = ProjectileModule.ShootStyle.SemiAutomatic;
+            gun.DefaultModule.cooldownTime = 0.8f;
             gun.sprite.IsPerpendicular = true;
+
+            gun.SuppressLaserSight = true;
+
 
             //Projectile setup
             Projectile projectile = UnityEngine.Object.Instantiate<Projectile>(gun.DefaultModule.projectiles[0]);
@@ -83,13 +89,41 @@ namespace TurboItems
             return gun.PickupObjectId;
         }
 
-        private bool GunForm = true;
+        private bool HasReloaded;
+
+        protected override void Update()
+        {
+            if (this.gun.CurrentOwner)
+            {
+                if (this.gun.PreventNormalFireAudio)
+                {
+                    this.gun.PreventNormalFireAudio = true;
+                }
+                if (!this.gun.IsReloading && !this.HasReloaded)
+                {
+                    this.HasReloaded = true;
+                }
+            }
+        }
         public override void OnReloadPressed(PlayerController player, Gun gun, bool bSOMETHING)
         {
-            AkSoundEngine.PostEvent("Stop_WPN_All", base.gameObject);
+            if (gun.IsReloading && this.HasReloaded)
+            {
+                this.HasReloaded = false;
+                AkSoundEngine.PostEvent("Stop_WPN_All", base.gameObject);
+                if (GunForm)
+                {
+                    AkSoundEngine.PostEvent("Play_OBJ_blackhole_close_01", base.gameObject);
+                }
+                else
+                {
+                    AkSoundEngine.PostEvent("Play_OBJ_blackhole_close_01", base.gameObject);
+                }
+            }
+
             if (GunForm == true)
             {
-                gun.TransformToTargetGun(Gungeon.Game.Items["turbo:mirror_sword_beam"] as Gun);
+                gun.TransformToTargetGun(Gungeon.Game.Items["turbo:mirror_sword_laser"] as Gun);
                 GunForm = false;
             }
             else
@@ -97,7 +131,22 @@ namespace TurboItems
                 gun.TransformToTargetGun(Gungeon.Game.Items["turbo:mirror_sword"] as Gun);
                 GunForm = true;
             }
+            base.OnReloadPressed(player, gun, bSOMETHING);
         }
+        public override void OnPostFired(PlayerController player, Gun gun)
+        {
+            gun.PreventNormalFireAudio = true;
+            if (GunForm)
+            {
+                AkSoundEngine.PostEvent("Play_WPN_blasphemy_shot_01", base.gameObject);
+            }
+            else
+            {
+                AkSoundEngine.PostEvent("Play_WPN_stdissuelaser_shot_01", base.gameObject);
+            }
+        }
+        
+        private static bool GunForm = true;
         public MirrorSword()
         {
 

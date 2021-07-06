@@ -38,8 +38,8 @@ namespace TurboItems
             gun.SneakAttackDamageMultiplier = 0f;
             gun.ClearsCooldownsLikeAWP = false;
             gun.clipsToLaunchOnReload = 0;
-            gun.RequiresFundsToShoot = false;
-            gun.CurrencyCostPerShot = 0; //makes it fire based on coin amount like Microtransaction Gun
+            gun.RequiresFundsToShoot = false; //makes it fire based on coin amount like Microtransaction Gun
+            gun.CurrencyCostPerShot = 0;
             gun.GainsRateOfFireAsContinueAttack = false;
             gun.RateOfFireMultiplierAdditionPerSecond = 0f;
             gun.GoopReloadsFree = false; //makes goop (i.e. poison, oil, water, Blobulonian... jelly) restore ammo when reloaded on top of
@@ -143,7 +143,7 @@ namespace TurboItems
             gun.muzzleFlashEffects = default;
             gun.muzzleOffset = default;
             gun.ObjectToInstantiateOnReload = default;
-            //this section is On hooks, obviously
+            //this section is On stuff, obviously
             gun.OnAmmoChanged = null;
             gun.OnAutoReload = null;
             gun.OnBurstContinued = null;

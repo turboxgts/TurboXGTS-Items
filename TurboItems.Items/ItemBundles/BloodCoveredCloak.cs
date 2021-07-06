@@ -18,7 +18,7 @@ namespace TurboItems
 			ItemBuilder.SetupItem(item, shortDesc, longDesc, "turbo");
 			ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.Curse, 2, StatModifier.ModifyMethod.ADDITIVE);
 			ItemBuilder.AddPassiveStatModifier(item, PlayerStats.StatType.EnemyProjectileSpeedMultiplier, 0.75f, StatModifier.ModifyMethod.ADDITIVE);
-			item.quality = PickupObject.ItemQuality.SPECIAL;
+			item.quality = PickupObject.ItemQuality.EXCLUDED;
 			item.CanBeDropped = false;
 
 			List<string> mandatoryConsoleIDs = new List<string>
